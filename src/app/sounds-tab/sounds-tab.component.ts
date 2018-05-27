@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../backend.service';
+import { Sound } from '../sound';
 
 @Component({
   selector: 'app-sounds-tab',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SoundsTabComponent implements OnInit {
 
-  constructor() { }
+  sounds: Sound[];
+
+  constructor(
+    private backend: BackendService
+  ) { }
 
   ngOnInit() {
+    this.backend.getSounds().subscribe(
+      sounds => this.sounds = sounds
+    );
+  }
+
+  play(sound) {
+    this.backend.playSound(sound.id).subscribe();
   }
 
 }
