@@ -5,11 +5,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { SoundsTabComponent } from './sounds-tab/sounds-tab.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelloWorldComponent,
+    SoundsTabComponent,
   ],
   imports: [
     BrowserModule,
