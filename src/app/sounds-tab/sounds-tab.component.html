@@ -1,4 +1,7 @@
 <div class="sound-tab">
+  <div class="loading-message" *ngIf="loadingMessage">
+    {{loadingMessage}}
+  </div>
   <button
     type="button"
     class="btn btn-outline-primary"

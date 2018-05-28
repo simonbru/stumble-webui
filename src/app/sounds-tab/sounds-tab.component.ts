@@ -10,14 +10,23 @@ import { Sound } from '../sound';
 export class SoundsTabComponent implements OnInit {
 
   sounds: Sound[];
+  loadingMessage: String;
 
   constructor(
     private backend: BackendService
   ) { }
 
   ngOnInit() {
+    this.loadingMessage = "Loading list of sounds...";
     this.backend.getSounds().subscribe(
-      sounds => this.sounds = sounds
+      sounds => {
+        this.sounds = sounds
+        this.loadingMessage = null
+      },
+      error => this.loadingMessage = (
+        "Failed to retrieve the list of sounds:\n" +
+        error.message
+      ),
     );
   }
 

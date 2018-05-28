@@ -2,3 +2,7 @@ button {
     margin-right: 10px;
     margin-bottom: 10px;
 }
+
+.loading-message {
+    white-space: pre-line;
+}
