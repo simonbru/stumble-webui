@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { BackendService } from '../backend.service';
 import { SpeakerService } from '../speaker.service';
 
@@ -10,6 +10,7 @@ import { SpeakerService } from '../speaker.service';
 export class SpeakTabComponent implements OnInit {
 
   speechInput: String;
+  @ViewChild('speechInputElement') speechInputElement: ElementRef;
 
   constructor(
     private backend: BackendService,
@@ -19,10 +20,20 @@ export class SpeakTabComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit() {
-    this.speaker.speak(this.speechInput).subscribe(
+  play(entry: String) {
+    const speech = entry.trim();
+    this.speaker.speak(speech).subscribe(
       result => this.speechInput = ''
     );
+  }
+
+  onSubmit() {
+    this.play(this.speechInput);
+  }
+
+  onEdit(entry: String) {
+    this.speechInput = entry;
+    this.speechInputElement.nativeElement.focus();
   }
 
   get speakerLog() {
