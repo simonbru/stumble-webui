@@ -17,14 +17,14 @@ export class SoundsTabComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadingMessage = "Loading list of sounds...";
+    this.loadingMessage = 'Loading list of sounds...';
     this.backend.getSounds().subscribe(
       sounds => {
-        this.sounds = sounds
-        this.loadingMessage = null
+        this.sounds = sounds;
+        this.loadingMessage = null;
       },
       error => this.loadingMessage = (
-        "Failed to retrieve the list of sounds:\n" +
+        'Failed to retrieve the list of sounds:\n' +
         error.message
       ),
     );
