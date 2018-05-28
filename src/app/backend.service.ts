@@ -28,4 +28,11 @@ export class BackendService {
       { message: soundId }
     );
   }
+
+  speak(text: String): Observable<Object> {
+    return this.http.post(
+      `${this.backendUrl}/commands/tts/invoke`,
+      { message: text }
+    );
+  }
 }
