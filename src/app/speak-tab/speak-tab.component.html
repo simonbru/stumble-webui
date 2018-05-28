@@ -23,4 +23,17 @@
         </div>
       </div>
   </form>
+
+  <div class="history-container" *ngIf="speakerLog.length">
+    <h4>History</h4>
+    <div class="list-group">
+      <div
+        class="list-group-item list-group-item-action"
+        *ngFor="let entry of speakerLog.slice().reverse()"
+      >
+        {{entry}}
+      </div>
+    </div>
+  </div>
+
 </div>
