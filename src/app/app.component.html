@@ -3,6 +3,13 @@
   <h1>
     {{ title }}
   </h1>
+  <!-- [ngModel]="playerGain" (ngModelChange)="onChange($event)" -->
+  <!-- [value]="playerGain" (change)="onChange($event.target.value)" -->
+  {{playerGain}}
+  <input
+    type="range" class="form-control-range" min="1" max="100" step="1"
+    [(ngModel)]="playerGain" (change)="onChange($event.target.value)"
+  >
   <ul class="nav nav-tabs">
     <li class="nav-item">
       <a routerLink="/sounds" class="nav-link" routerLinkActive="active">Sounds</a>
