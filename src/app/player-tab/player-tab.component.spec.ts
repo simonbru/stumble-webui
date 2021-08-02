@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HelloWorldComponent } from './hello-world.component';
+import { PlayerTabComponent } from './player-tab.component';
 
-describe('HelloWorldComponent', () => {
-  let component: HelloWorldComponent;
-  let fixture: ComponentFixture<HelloWorldComponent>;
+describe('PlayerTabComponent', () => {
+  let component: PlayerTabComponent;
+  let fixture: ComponentFixture<PlayerTabComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HelloWorldComponent ]
+      declarations: [ PlayerTabComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HelloWorldComponent);
+    fixture = TestBed.createComponent(PlayerTabComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

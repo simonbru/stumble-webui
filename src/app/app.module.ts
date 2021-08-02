@@ -6,17 +6,17 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { HelloWorldComponent } from './hello-world/hello-world.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { PlayerTabComponent } from './player-tab/player-tab.component';
 import { SoundsTabComponent } from './sounds-tab/sounds-tab.component';
 import { SpeakTabComponent } from './speak-tab/speak-tab.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HelloWorldComponent,
     SoundsTabComponent,
     SpeakTabComponent,
+    PlayerTabComponent,
   ],
   imports: [
     BrowserModule,

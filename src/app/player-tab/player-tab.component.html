@@ -1,0 +1,24 @@
+
+<div class="sound-tab">
+  <div class="loading-message" *ngIf="loadingMessage">
+    {{loadingMessage}}
+  </div>
+  <div *ngIf="!loadingMessage">
+    <div>
+      Status:&nbsp;<strong>{{statusLabel()}}</strong>
+    </div>
+    <button
+      type="button"
+      class="btn btn-outline-secondary"
+      (click)="stop()"
+    >Stop</button>
+
+    <div class="mt-4">
+      Volume:&nbsp;<strong>{{playerState.gain}}%</strong>
+    </div>
+    <input
+      type="range" class="form-control-range" min="1" max="100" step="1"
+      [(ngModel)]="playerState.gain" (change)="onVolumeChange($event.target.value)"
+    >
+  </div>
+</div>
