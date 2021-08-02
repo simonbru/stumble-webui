@@ -17,7 +17,7 @@ export class PlayerTabComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadingMessage = 'Loading player state';
+    this.loadingMessage = 'Loading player state...';
     this.playerUpdates = this.backend.getPlayerUpdates();
     this.playerUpdates.subscribe(
       data => {
