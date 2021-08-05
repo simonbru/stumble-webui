@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { SoundsTabComponent } from './sounds-tab.component';
 
@@ -6,7 +6,7 @@ describe('SoundsTabComponent', () => {
   let component: SoundsTabComponent;
   let fixture: ComponentFixture<SoundsTabComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ SoundsTabComponent ]
     })
