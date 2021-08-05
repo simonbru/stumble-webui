@@ -10,7 +10,7 @@ import { SpeakerService } from '../speaker.service';
 export class SpeakTabComponent implements OnInit {
 
   speechInput: string;
-  @ViewChild('speechInputElement', { static: true }) speechInputElement: ElementRef;
+  @ViewChild('speechInputElement') speechInputElement: ElementRef;
 
   constructor(
     private backend: BackendService,
