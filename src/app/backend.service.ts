@@ -9,10 +9,10 @@ const EventSource = window['EventSource'];
 
 const BACKEND_URL: string = environment.backendUrl;
 
-export type PlayerState = {
-  gain: Number,
-  queue: string[],
-  streaming: Boolean,
+export interface PlayerState {
+  gain: Number;
+  queue: string[];
+  streaming: Boolean;
 }
 
 @Injectable({
@@ -35,7 +35,7 @@ export class BackendService {
       map(sounds => sounds.slice().sort(
         (a, b) => a.id.localeCompare(b.id)
       ))
-    )
+    );
   }
 
   playSound(soundId: string): Observable<Object> {
@@ -70,10 +70,10 @@ export class BackendService {
     return new Observable(obs => {
       const url = `${BACKEND_URL}/player?repeating=true`;
       const eventSource = new EventSource(url);
-      eventSource.addEventListener("update", event => {
+      eventSource.addEventListener('update', event => {
         const data = JSON.parse(event['data']);
         obs.next(data);
-      })
+      });
 
       return () => eventSource.close();
     });

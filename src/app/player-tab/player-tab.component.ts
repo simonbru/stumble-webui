@@ -21,7 +21,7 @@ export class PlayerTabComponent implements OnInit {
     this.playerUpdates = this.backend.getPlayerUpdates();
     this.playerUpdates.subscribe(
       data => {
-        console.log(data)
+        console.log(data);
         this.playerState = data;
         this.loadingMessage = undefined;
       },
@@ -29,7 +29,7 @@ export class PlayerTabComponent implements OnInit {
         'Failed to retrieve player state:\n' +
         error.message
       ),
-    )
+    );
   }
 
   onVolumeChange(value) {
@@ -43,8 +43,8 @@ export class PlayerTabComponent implements OnInit {
 
   statusLabel() {
     if (!this.playerState) {
-      return "???"
+      return '???';
     }
-    return this.playerState.streaming ? "Playing" : "Idle"
+    return this.playerState.streaming ? 'Playing' : 'Idle';
   }
 }

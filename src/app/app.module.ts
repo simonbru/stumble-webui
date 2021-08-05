@@ -22,7 +22,7 @@ import { SpeakTabComponent } from './speak-tab/speak-tab.component';
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    NgbModule.forRoot(),
+    NgbModule,
     AppRoutingModule,
   ],
   providers: [],
