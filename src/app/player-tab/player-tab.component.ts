@@ -10,7 +10,7 @@ import { BackendService, PlayerState } from '../backend.service';
 export class PlayerTabComponent implements OnInit {
   private playerUpdates: Observable<any>;
   playerState?: PlayerState;
-  loadingMessage?: String;
+  loadingMessage?: string;
 
   constructor(
     private backend: BackendService

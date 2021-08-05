@@ -7,11 +7,11 @@ import { environment } from '../environments/environment';
 
 const EventSource = window['EventSource'];
 
-const BACKEND_URL: String = environment.backendUrl;
+const BACKEND_URL: string = environment.backendUrl;
 
 export type PlayerState = {
   gain: Number,
-  queue: String[],
+  queue: string[],
   streaming: Boolean,
 }
 
@@ -30,14 +30,14 @@ export class BackendService {
     );
   }
 
-  playSound(soundId: String): Observable<Object> {
+  playSound(soundId: string): Observable<Object> {
     return this.http.post(
       `${BACKEND_URL}/commands/play/invoke`,
       { message: soundId }
     );
   }
 
-  speak(text: String): Observable<Object> {
+  speak(text: string): Observable<Object> {
     return this.http.post(
       `${BACKEND_URL}/commands/tts/invoke`,
       { message: text }

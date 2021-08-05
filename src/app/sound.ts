@@ -1,5 +1,5 @@
 export class Sound {
-    id: String;
-    uploader: String;
+    id: string;
+    uploader: string;
     date: Number;
 }

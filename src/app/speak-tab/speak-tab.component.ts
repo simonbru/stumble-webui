@@ -9,7 +9,7 @@ import { SpeakerService } from '../speaker.service';
 })
 export class SpeakTabComponent implements OnInit {
 
-  speechInput: String;
+  speechInput: string;
   @ViewChild('speechInputElement') speechInputElement: ElementRef;
 
   constructor(
@@ -20,7 +20,7 @@ export class SpeakTabComponent implements OnInit {
   ngOnInit() {
   }
 
-  play(entry: String) {
+  play(entry: string) {
     const speech = entry.trim();
     this.speaker.speak(speech).subscribe(
       result => this.speechInput = ''
@@ -31,7 +31,7 @@ export class SpeakTabComponent implements OnInit {
     this.play(this.speechInput);
   }
 
-  onEdit(entry: String) {
+  onEdit(entry: string) {
     this.speechInput = entry;
     this.speechInputElement.nativeElement.focus();
   }

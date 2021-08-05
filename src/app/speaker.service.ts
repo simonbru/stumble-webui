@@ -6,26 +6,26 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SpeakerService {
-  public log: String[] = [];
+  public log: string[] = [];
 
   constructor(
     private backend: BackendService,
   ) { }
 
-  private add(text: String) {
+  private add(text: string) {
     if (this.log.includes(text)) {
       this.deleteEntry(text);
     }
     this.log.push(text);
   }
 
-  speak(text: String) {
+  speak(text: string) {
     return this.backend.speak(text).pipe(
       tap(() => this.add(text))
     );
   }
 
-  deleteEntry(text: String) {
+  deleteEntry(text: string) {
     this.log = this.log.filter(e => e !== text);
   }
 }

@@ -10,7 +10,7 @@ import { Sound } from '../sound';
 export class SoundsTabComponent implements OnInit {
 
   sounds: Sound[];
-  loadingMessage?: String;
+  loadingMessage?: string;
 
   constructor(
     private backend: BackendService
