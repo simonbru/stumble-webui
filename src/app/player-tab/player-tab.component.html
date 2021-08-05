@@ -5,7 +5,7 @@
   </div>
   <div *ngIf="!loadingMessage">
     <div>
-      Status:&nbsp;<strong>{{statusLabel()}}</strong>
+      Status:&nbsp;<strong>{{statusLabel}}</strong>
     </div>
     <button
       type="button"
@@ -14,11 +14,11 @@
     >Stop</button>
 
     <div class="mt-4">
-      Volume:&nbsp;<strong>{{playerState.gain}}%</strong>
+      Volume:&nbsp;<strong>{{volume}}%</strong>
     </div>
     <input
       type="range" class="form-control-range" min="1" max="100" step="1"
-      [(ngModel)]="playerState.gain" (change)="onVolumeChange($event.target.value)"
+      [ngModel]="volume" (change)="onVolumeChange($event)"
     >
   </div>
 </div>

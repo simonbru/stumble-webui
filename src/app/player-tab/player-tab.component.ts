@@ -8,8 +8,9 @@ import { BackendService, PlayerState } from '../backend.service';
   styleUrls: ['./player-tab.component.css']
 })
 export class PlayerTabComponent implements OnInit {
-  private playerUpdates: Observable<any>;
+  private playerUpdates?: Observable<PlayerState>;
   playerState?: PlayerState;
+  volume: Number = 0; // Used for optimistic updates
   loadingMessage?: string;
 
   constructor(
@@ -23,6 +24,7 @@ export class PlayerTabComponent implements OnInit {
       data => {
         console.log(data);
         this.playerState = data;
+        this.volume = this.playerState.gain;
         this.loadingMessage = undefined;
       },
       error => this.loadingMessage = (
@@ -32,8 +34,10 @@ export class PlayerTabComponent implements OnInit {
     );
   }
 
-  onVolumeChange(value) {
+  onVolumeChange(event: Event) {
+    const value = parseInt((event.target as HTMLInputElement).value, 10);
     console.log(value);
+    this.volume = value;  // Update volume early
     this.backend.setGain(value).subscribe();
   }
 
@@ -41,7 +45,7 @@ export class PlayerTabComponent implements OnInit {
     this.backend.stop().subscribe();
   }
 
-  statusLabel() {
+  get statusLabel() {
     if (!this.playerState) {
       return '???';
     }

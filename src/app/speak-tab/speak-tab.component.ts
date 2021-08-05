@@ -9,11 +9,10 @@ import { SpeakerService } from '../speaker.service';
 })
 export class SpeakTabComponent implements OnInit {
 
-  speechInput: string;
-  @ViewChild('speechInputElement') speechInputElement: ElementRef;
+  speechInput?: string;
+  @ViewChild('speechInputElement') speechInputElement?: ElementRef;
 
   constructor(
-    private backend: BackendService,
     public speaker: SpeakerService,
   ) { }
 
@@ -23,17 +22,18 @@ export class SpeakTabComponent implements OnInit {
   play(entry: string) {
     const speech = entry.trim();
     this.speaker.speak(speech).subscribe(
-      result => this.speechInput = ''
+      () => this.speechInput = ''
     );
   }
 
   onSubmit() {
+    if (!this.speechInput) return;
     this.play(this.speechInput);
   }
 
   onEdit(entry: string) {
     this.speechInput = entry;
-    this.speechInputElement.nativeElement.focus();
+    this.speechInputElement!.nativeElement.focus();
   }
 
   get speakerLog() {

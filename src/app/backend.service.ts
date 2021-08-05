@@ -26,7 +26,7 @@ export class BackendService {
 
   getSounds(): Observable<Sound[]> {
     return this.http.get(`${BACKEND_URL}/sounds`).pipe(
-      map(res => res['sounds']),
+      map(res => (res as any).sounds as Sound[]),
     );
   }
 
@@ -62,7 +62,7 @@ export class BackendService {
   setGain(gain: Number): Observable<Object> {
     return this.http.post(
       `${BACKEND_URL}/commands/gain/invoke`,
-      { message: gain }
+      { message: gain.toString() }
     );
   }
 
@@ -71,7 +71,7 @@ export class BackendService {
       const url = `${BACKEND_URL}/player?repeating=true`;
       const eventSource = new EventSource(url);
       eventSource.addEventListener('update', event => {
-        const data = JSON.parse(event['data']);
+        const data = JSON.parse((event as any).data);
         obs.next(data);
       });
 

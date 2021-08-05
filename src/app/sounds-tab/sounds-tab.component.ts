@@ -9,7 +9,7 @@ import { Sound } from '../sound';
 })
 export class SoundsTabComponent implements OnInit {
 
-  sounds: Sound[];
+  sounds?: Sound[];
   loadingMessage?: string;
 
   constructor(
