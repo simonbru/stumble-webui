@@ -30,6 +30,14 @@ export class BackendService {
     );
   }
 
+  getSortedSounds(): Observable<Sound[]> {
+    return this.getSounds().pipe(
+      map(sounds => sounds.slice().sort(
+        (a, b) => a.id.localeCompare(b.id)
+      ))
+    )
+  }
+
   playSound(soundId: string): Observable<Object> {
     return this.http.post(
       `${BACKEND_URL}/commands/play/invoke`,

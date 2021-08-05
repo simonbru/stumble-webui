@@ -18,7 +18,7 @@ export class SoundsTabComponent implements OnInit {
 
   ngOnInit() {
     this.loadingMessage = 'Loading list of sounds...';
-    this.backend.getSounds().subscribe(
+    this.backend.getSortedSounds().subscribe(
       sounds => {
         this.sounds = sounds;
         this.loadingMessage = undefined;
@@ -30,7 +30,7 @@ export class SoundsTabComponent implements OnInit {
     );
   }
 
-  play(sound) {
+  play(sound: Sound) {
     this.backend.playSound(sound.id).subscribe();
   }
 
